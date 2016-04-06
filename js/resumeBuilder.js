@@ -1,46 +1,49 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
+    var bio = {
+        "name" : "Theerasak Boonprajam",
+        "role" : "Front-end web developer",
+        "welcomeMessage" : "Hello welcome to my portfolio website",
+        "contact" : {
+            "mobie number" : "0846903844",
+            "email" : "zakk@zakk.me",
+            "github" : "zakky82",
+            "twitter" : "@zakkusm",
+            "location" : "Koh Samui"
+        },
+        "skills" : ["HTML", "CSS", "JavaScript", "Adobe Illustrator", "Photoshop"],
+        "bioPic" : "images/profilepic.jpg"
+    };
 
- // var awesomeThoughts = "I am Zakk and I am AWESOME!";
-// console.log(awesomeThoughts);
+    var education = {
+       "schools" : [{
+            "name" : "Chiang Mai University",
+            "location" : "Chiang Mai, Thailand",
+            "degree" : "BSc",
+            "major" : "Radiologic Technology",
+            "date" : "2000",
+            "url" : "http://www.cmu.ac.th"
+        },
+        {
+            "name" : "Saint Martin Colleage of Art and Design",
+            "location" : "London",
+            "degree" : "BA",
+            "major" : "Fashion Design Honour",
+            "date" : "2020",
+            "url" : "http://www.smca.ac.uk"
+        }],
+        "onlineCourses" : [
+        {
+                "title" : "Front-end Web Development, Nanodegree",
+                "school" : "Udacity",
+                "date" : "February 2016",
+                "url" : "http://www.udacity.com"
+        }]
+    };
 
-//var funThoughts=awesomeThoughts.replace("AWESOME","FUN");
-
-// $("#main").append(funThoughts);
-//var name = "Zakk Theerasak";
-//var role = "Web Developer";
-
-//var formattedName = HTMLheaderName.replace("%data%", name);
-//var formattedRole = HTMLheaderRole.replace("%data%", role);
-
-//$("#main").prepend(formattedRole);
-//$("#main").prepend(formattedName);
-
-//var skills = ["awesomeness", "programming", "teaching", "JS"];
-//$("#main").append(skills);
-//$("#main").append(skills[0]);
-//var bio = {
-//    "name" : "James",
-//    "age" : 32,
-//    "skills" : skills
-//};
-
-//$("#main").append(bio.name);
-
-//var bio = {
-//    "name" : "Theerasak",
- //   "role" : "Front-end Web Developer",
-//    "contactInfo" : "Koh Samui Thailand",
- //   "pictureUrl" : "images/me.jpg",
-//    "welcomeMessage" : "Howdy",
-//    "skills" : "happy"
-//};
-
-//$("#main").append(bio);
-    var work = {
-       "jobs" : [
-           {
+   var work = {
+       "jobs" : [{
             "employer" : "Samui Emerald Condominium",
             "title" : "Main Website",
             "ocation" : "Bophut, Koh Samui",
@@ -53,13 +56,11 @@ This is empty on purpose! Your code to build the resume will go here.
              "location" : "Koh Samui,Thailand",
              "date" : "2012-2014",
              "description" : "Create and develop website for customer to be able to their real estate and communicate with customer."
-           }
-        ]
-    }
+           }]
+    };
 
-    var project = {
-       "projects" : [
-            {
+    var projects = {
+       "projects" : [{
             "title" : "Sample Project 1",
             "date" : "2014",
             "description" : "When I was 28 I fall in love with a guy who is came to me as a guest. The first time I lay my eyes on him I feel like the whole world is blur and like feeling in the fantasy world.",
@@ -74,54 +75,8 @@ This is empty on purpose! Your code to build the resume will go here.
             "images" : ["http://placeholder.it",
                         "http://placeholder.it",
                         "http://placeholder.it"]
-            }
-        ]
-    }
-
-    var bio = {
-        "name" : "Theerasak Boonprajam",
-                "role" : "Front-end web development",
-                "welcomeMessage" : "Hello welcome to my portfolio website",
-                "contact" : {
-                   "mobie number":"0846903844",
-                    "email" : "zakk@zakk.me",
-                    "github" : "zakky82",
-                    "twitter" : "@zakkusm",
-                    "location" : "Koh Samui"
-                },
-                "skills" : [
-                   "HTML", "CSS", "JavaScript", "Adobe Illustrator", "Photoshop"
-                ],
-            }
-
-    var education = {
-       "schools" : [
-            {
-                "name" : "Chiang Mai University",
-                "location" : "Chiang Mai, Thailand",
-                "degree" : "BSc",
-                "major" : "Radiologic Technology",
-                "date" : "2000",
-                "url" : "http://www.cmu.ac.th",
-            },
-            {
-                "name" : "Saint Martin Colleage of Art and Design",
-                "location" : "London",
-                "degree" : "BA",
-                "major" : "Fashion Design Honour",
-                "date" : "2020",
-                "url" : "http://www.smca.ac.uk",
-            }
-        ],
-        "onlineCourses" : [
-            {
-                "title" : "Front-end Web Development, Nanodegree",
-                "school" : "Udacity",
-                "date" : "February 2016",
-                "url" : "http://www.udacity.com"
-            }
-        ]
-    }
+            }]
+    };
 
     function inName(name) {
         name = name.trim().split(" ");
@@ -156,6 +111,90 @@ This is empty on purpose! Your code to build the resume will go here.
             }
         }
 
+function displayEducation() {
+    for (school in education.schools) {
+        $("#education").append(HTMLschoolStart);
+
+        var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+        var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+        var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+        var formattedSchoolHeader = formattedSchool + formattedDegree;
+
+        $("#education").append(HTMLschoolStart);
+        $(".education-entry:last").append(schoolHeader);
+        $(".education-entry:last").append(schoolDates);
+
+        if (education.schools[school].major.length > 0) {
+            for (item in education.schools[school].major)
+                var schoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+            $(".school-entry:last").append(schoolMajor);
+        }
+    }
+}
+
+function displayWork() {
+    for (job in work.jobs) {
+        $("#workExperience").append(HTMLworkStart);
+
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+        var formattedEmployerTitle = formattedEmployer + formattedTitle;
+
+        $(".work-entry:last").append(formattedEmployerTitle);
+
+        var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+        $(".work-entry:last").append(formattedDates);
+
+        var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+        $(".work-entry:last").append(formattedDescription);
+    }
+}
+
+for (job in work.jobs) {
+    $("#workExperience").append(HTMLworkStart);
+
+    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+    var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+    var formattedEmployerTitle = formattedEmployer + formattedTitle;
+
+    $(".work-entry:last").append(
+        formattedEmployerTitle);
+
+    var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+    $(".work-entry:last").append(formattedDates);
+
+    var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+    $(".work-entry:last").append(formattedDescription);
+
+function displayProjects() {
+    for (project in projects.projects) {
+        $("#projects").append(HTMLprojectStart);
+
+        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+        $(".project-entry:last").append(formattedTitle);
+
+        var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+        $(".project-entry:last").append(formattedDates);
+
+        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+        $(".project-entry:last").append(formattedDescription);
+    }
+}
+
+function inName(name) {
+    name = name.trim().split(" ");
+    console.log(name);
+    name[1] = name[1].toUpperCase();
+    name = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
+
+    return name[0] + " " + name[1];
+    $("#main").append(internationalizeButton);
+}
+
+displayBio();
+displayEducation();
+displayWork();
+displayProjects();
 
 
 
