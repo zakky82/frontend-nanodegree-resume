@@ -41,16 +41,16 @@ var education = {
 var work = {
     "jobs" : [{
         "employer" : "Samui Emerald Condominium",
-        "title" : "Main Website",
-        "ocation" : "Bophut, Koh Samui",
-        "date" : "2011-2015",
+        "title" : "Web Development",
+        "location" : "Bophut, Koh Samui",
+        "dates" : "2011-2015",
         "description" : "Create website for the condominum to help the client communicate with their client and as a hub for booking and checking pregression of the condo."
         },
         {
         "employer" : "Property Research Thailand",
-        "title" : "Main website of Property Research Thailand",
+        "title" : "Web Design and Development",
         "location" : "Koh Samui,Thailand",
-        "date" : "2012-2014",
+        "dates" : "2012-2014",
         "description" : "Create and develop website for customer to be able to their real estate and communicate with customer."
         }]
 };
@@ -100,6 +100,32 @@ if(bio.skills.length > 0) {
    formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
    $("#skills").append(formattedSkill);
 }
+
+// Display work
+
+for (job in work.jobs) {
+    // create new div for work experience
+    $("#.workExperience").append(HTMLworkStart);
+    // concat employer and title
+    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+
+    var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+
+    var formattedEmployerTitle = formattedEmployer + formattedTitle;
+
+    $("#.work-entry:last").append(formattedEmployerTitle);
+
+    var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+    $(".work-entry:last").append(formattedDates);
+
+    var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+    $(".work-entry:last").append(formattedLocation);
+
+    var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+    $(".work-entry:last").append(formattedDescription);
+
+}
+
 
 
 
