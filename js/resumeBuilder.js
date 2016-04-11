@@ -105,7 +105,7 @@ if(bio.skills.length > 0) {
 
 for (job in work.jobs) {
     // create new div for work experience
-    $("#.workExperience").append(HTMLworkStart);
+    $("#workExperience").append(HTMLworkStart);
     // concat employer and title
     var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
 
@@ -113,7 +113,7 @@ for (job in work.jobs) {
 
     var formattedEmployerTitle = formattedEmployer + formattedTitle;
 
-    $("#.work-entry:last").append(formattedEmployerTitle);
+    $(".work-entry:last").append(formattedEmployerTitle);
 
     var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
     $(".work-entry:last").append(formattedDates);
