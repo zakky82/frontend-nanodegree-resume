@@ -2,7 +2,7 @@ var bio = {
     "name" : "Theerasak Boonprajam",
     "role" : "Front-end web developer",
     "welcomeMessage" : "Hello welcome to my portfolio website",
-        "contact" : {
+    "contact" : {
         "mobie number" : "0846903844",
         "email" : "zakk@zakk.me",
         "github" : "zakky82",
@@ -19,7 +19,7 @@ var education = {
         "location" : "Chiang Mai, Thailand",
         "degree" : "BSc",
         "major" : "Radiologic Technology",
-        "date" : "2000",
+        "dates" : "2000",
         "url" : "http://www.cmu.ac.th"
     },
     {
@@ -27,13 +27,13 @@ var education = {
         "location" : "London",
         "degree" : "BA",
         "major" : "Fashion Design Honour",
-        "date" : "2020",
+        "dates" : "2020",
         "url" : "http://www.smca.ac.uk"
     }],
     "onlineCourses" : [{
         "title" : "Front-end Web Development, Nanodegree",
         "school" : "Udacity",
-        "date" : "February 2016",
+        "dates" : "February 2016",
         "url" : "http://www.udacity.com"
     }]
 };
@@ -58,15 +58,9 @@ var work = {
 var projects = {
     "projects" : [{
         "title" : "Sample Project 1",
-        "date" : "2014",
+        "dates" : "2014",
         "description" : "When I was 28 I fall in love with a guy who is came to me as a guest. The first time I lay my eyes on him I feel like the whole world is blur and like feeling in the fantasy world.",
-        "images" : ["http://placeholder.it","http://placeholder.it","http://placeholder.it"]
-        },
-        {
-        "title" : "Sample Project 2",
-        "date" : "2015",
-        "description" : "When I was 28 I fall in love with a guy who is came to me as a guest. The first time I lay my eyes on him I feel like the whole world is blur and like feeling in fantasy world.",
-        "images" : ["http://placeholder.it", "http://placeholder.it", "http://placeholder.it"]
+        "images" : ["images/197x148.gif","images/197x148.gif"]
         }]
 };
 
@@ -79,6 +73,11 @@ var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
     $("#header").prepend(formattedName);
 
+ var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
+   $("#header").append(formattedPic);
+
+var formattedwelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+$("#header").append(formattedwelcomeMessage);
 
 // Display header and skill in Bio
 
@@ -99,7 +98,10 @@ if(bio.skills.length > 0) {
 
    formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
    $("#skills").append(formattedSkill);
+
 }
+
+
 
 // Display work
 
@@ -151,21 +153,6 @@ function locationizer(work_obj) {
     return locationArray;
 }
 
-//The name game
-
-function inName(name) {
-    name = name.trim().split(" ");
-    console.log(name);
-    name[1] = name[1].toUpperCase();
-    name[0] = name[0].slice(0,1).toUpperCase() +
-        name[0].slice(1).toLowerCase();
-
-    return name[0] + " " + name[1];
-};
-
-$("#main").append(internationalizeButton);
-
-
 // Display projects using Encapsulating Functions
 
 projects.display = function() {
@@ -188,7 +175,43 @@ projects.display = function() {
             }
         }
     }
+}
+
+projects.display();
+
+// Display Education
+
+education.display = function() {
+    for (school in education.schools) {
+        $("#education").append(HTMLschoolStart);
+
+        var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+        var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+        var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+        var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+        var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+        $(".education-entry:last").append(formattedName);
+        $(".education-entry:last").append(formattedDates);
+        $(".education-entry:last").append(formattedLocation);
+        $(".education-entry:last").append(formattedMajor);
+        $(".education-entry:last").append(formattedDegree);
+    };
+    for (school in education.onlineCourses) {
+        $(".education-entry:last").append(HTMLonlineClasses);
+        var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[school].title);
+        $(".education-entry:last").append(formattedTitle);
+        var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[school].school);
+        $(".education-entry:last").append(formattedSchool);
+        var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[school].dates);
+        $(".education-entry:last").append(formattedDates);
+        var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[school].url);
+        $(".education-entry:last").append(formattedURL);
+
+    };
 };
+education.display();
+
+
 
 
 
