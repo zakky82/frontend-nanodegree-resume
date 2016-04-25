@@ -2,8 +2,8 @@ var bio = {
     "name" : "Theerasak Boonprajam",
     "role" : "Front-end web developer",
     "welcomeMessage" : "Hello welcome to my portfolio website",
-    "contact" : {
-        "mobie number" : "0846903844",
+    "contacts" : {
+        "mobile" : "0846903844",
         "email" : "zakk@zakk.me",
         "github" : "zakky82",
         "twitter" : "@zakkusm",
@@ -78,6 +78,24 @@ var formattedName = HTMLheaderName.replace("%data%", bio.name);
 
 var formattedwelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 $("#header").append(formattedwelcomeMessage);
+
+// Display Contact
+$("#contacts").append(HTMLcontactGeneric);
+
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+$("#header").append(formattedMobile);
+
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+$("#header").append(formattedEmail);
+
+var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+$("#header").append(formattedTwitter);
+
+var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+$("#header").append(formattedGithub);
+
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+$("#header").append(formattedLocation);
 
 // Display header and skill in Bio
 
