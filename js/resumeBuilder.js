@@ -3,7 +3,7 @@ var bio = {
     "role" : "Front-end web developer",
     "welcomeMessage" : "Hello welcome to my portfolio website",
     "contacts" : {
-        "mobile" : "0846903844",
+        "mobile" : "+66 84 690 3844",
         "email" : "zakk@zakk.me",
         "github" : "zakky82",
         "twitter" : "@zakkusm",
@@ -27,12 +27,12 @@ var education = {
         "location" : "London",
         "degree" : "BA",
         "major" : "Fashion Design Honour",
-        "dates" : "2020",
+        "dates" : "2010",
         "url" : "http://www.smca.ac.uk"
     }],
     "onlineCourses" : [{
         "title" : "Front-end Web Development, Nanodegree",
-        "school" : "Udacity",
+        "school" : " Udacity",
         "dates" : "February 2016",
         "url" : "http://www.udacity.com"
     }]
@@ -77,19 +77,19 @@ var formattedName = HTMLheaderName.replace("%data%", bio.name);
 //$("#topContacts").append(HTMLcontactGeneric);
 
 var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-$("#topContacts").append(formattedMobile);
+$("#topContacts, #footerContacts").append(formattedMobile);
 
 var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-$("#topContacts").append(formattedEmail);
+$("#topContacts, #footerContacts").append(formattedEmail);
 
 var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-$("#topContacts").append(formattedTwitter);
+$("#topContacts, #footerContacts").append(formattedTwitter);
 
 var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-$("#topContacts").append(formattedGithub);
+$("#topContacts, #footerContacts").append(formattedGithub);
 
 var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-$("#topContacts").append(formattedLocation);
+$("#topContacts, #footerContacts").append(formattedLocation);
 
  var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
    $("#header").append(formattedPic);
