@@ -234,8 +234,9 @@ education.display = function() {
 }
 education.display();
 
+//Display Maps
 
-
+$("#mapDiv").append(googleMap);
 
 
 
