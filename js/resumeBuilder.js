@@ -201,7 +201,9 @@ projects.display();
 // Display Education
 
 education.display = function() {
+
     for (school in education.schools) {
+
         $("#education").append(HTMLschoolStart);
 
         var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
@@ -214,9 +216,11 @@ education.display = function() {
         $(".education-entry:last").append(formattedLocation);
         $(".education-entry:last").append(formattedMajor);
         $(".education-entry:last").append(formattedDegree);
-    };
-    for (school in education.onlineCourses) {
+    }
         $("#education").append(HTMLonlineClasses);
+
+    for (school in education.onlineCourses) {
+        $("#education").append(HTMLschoolStart);
         var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[school].title);
         $(".education-entry:last").append(formattedTitle);
         var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[school].school);
@@ -226,8 +230,8 @@ education.display = function() {
         var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[school].url);
         $(".education-entry:last").append(formattedURL);
 
-    };
-};
+    }
+}
 education.display();
 
 
