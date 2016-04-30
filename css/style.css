@@ -2,16 +2,14 @@ body,
 div,
 ul,
 li,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+p {
   padding:0;
   margin:0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Helvetica", sans-serif; /*Change font family to Helvetica*/
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Abril Fatface', cursive; /*change headings font to google font*/
 }
 
 .clear-fix {
@@ -26,7 +24,7 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #541610; /*change h1 color */
   line-height: 48px;
   display: inline;
 }
@@ -34,7 +32,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: #ebd54c; /* change h2 color */
   line-height: 29px;
   padding: 10px;
 }
@@ -60,7 +58,6 @@ h5 {
   padding:10px 5%;
 
 }
-
 
 .date-text {
   font-style: italic;
@@ -129,7 +126,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #1731fa; /*change background color of header*/
 }
 
 .flex-box {
