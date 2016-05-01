@@ -1,3 +1,5 @@
+'use strict';
+
 var bio = {
     "name": "Theerasak Boonprajam",
     "role": "Front-end web developer",
@@ -10,7 +12,7 @@ var bio = {
     },
     "welcomeMessage": "Hello welcome to my portfolio website",
     "skills": ["HTML", "CSS", "JavaScript", "Adobe Illustrator", "Photoshop"],
-    "bioPic": "http://s32.postimg.org/jq7jzrwk5/profilepic.jpg"
+    "biopic": "http://s32.postimg.org/jq7jzrwk5/profilepic.jpg"
 };
 
 var education = {
@@ -94,7 +96,7 @@ bio.display = function() {
     var formattedwelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     $("#header").append(formattedwelcomeMessage);
 
-    var formattedImage = HTMLbioPic.replace("%data%", bio.bioPic);
+    var formattedImage = HTMLbioPic.replace("%data%", bio.biopic);
     $("#header").append(formattedImage);
 
     // Display header and skill in Bio
